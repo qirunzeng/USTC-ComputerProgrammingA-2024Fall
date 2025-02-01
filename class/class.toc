@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{数组}{3}{0}{1}
+\beamer@sectionintoc {2}{字符串}{15}{0}{2}
+\beamer@sectionintoc {3}{结构体}{22}{0}{3}
+\beamer@sectionintoc {4}{指针}{26}{0}{4}
+\beamer@sectionintoc {5}{链表}{30}{0}{5}

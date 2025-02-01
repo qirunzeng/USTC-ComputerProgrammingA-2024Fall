@@ -1,0 +1,287 @@
+\documentclass{beamer}
+\usetheme{Madrid} % 可以选择的主题有：AnnArbor, Antibes, Bergen, Berkeley, Berlin, Boadilla, CambridgeUS, Copenhagen, Darmstadt, Dresden, Frankfurt, Goettingen, Hannover, Ilmenau, JuanLesPins, Luebeck, Madrid, Malmoe, Marburg, Montpellier, PaloAlto, Pittsburgh, Rochester, Singapore, Szeged, Warsaw
+\usepackage{ctex} % 启用中文支持
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{framed}
+\usepackage{booktabs}
+\usepackage{dsfont}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=black}
+
+\title{计算机程序设计习题课}
+\author{Qirun Zeng}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{目录}
+    \tableofcontents
+\end{frame}
+
+
+\section{数组}
+\begin{frame}{数组的定义}
+    \begin{block}{定义}
+        数组是一种线性结构，它包含一系列相同类型的元素，这些元素在内存中连续地分布。数组的元素可以通过下标访问。
+    \end{block}
+    一般的数组定义如下： \\
+    \texttt{DataType arrayName[arraySize];} \\
+    其中 \texttt{DataType} 为数组的数据类型，\texttt{arrayName} 为数组名，\texttt{arraySize} 为数组的大小。
+\end{frame}
+
+\begin{frame}{数组的操作}
+    以一维数组为例，数组的操作包括：
+    \begin{itemize}
+        \item<1-> 初始化数组
+        \texttt{DataType arrayName[arraySize] = \{value1, value2, ...\};} \\
+        \item<2-> 访问数组元素
+        \texttt{arrayName[index];} \\
+        \item<3-> 修改数组元素
+        \texttt{arrayName[index] = newValue;} \\
+        \item<4-> 遍历数组
+        \texttt{for (int i = 0; i < arraySize; i++) \{...\}} \\
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{数组的初始化}
+    \begin{block}{初始化}
+        数组的初始化可以通过以下几种方式：
+        \begin{itemize}
+            \item<1-> 指定数组大小，不指定初始值
+            \texttt{int a[5];} \\
+            \item<2-> 指定数组大小，指定初始值
+            \texttt{int a[5] = \{1, 2, 3, 4, 5\};} \\
+            \item<3-> 不指定数组大小，指定初始值
+            \texttt{int a[] = \{1, 2, 3, 4, 5\};} \\
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{数组的遍历}
+    \begin{block}{遍历}
+        数组的遍历可以通过以下几种方式：
+        \begin{itemize}
+            \item<1-> 使用下标
+            \texttt{for (int i = 0; i < arraySize; i++) \{...\}} \\
+            \item<2-> 使用指针
+            \texttt{for (int* p = arrayName; p < arrayName + arraySize; p++) \{...\}} \\
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{数组的传参}
+    \begin{block}{传参}
+        数组的传参可以通过以下几种方式：
+        \begin{itemize}
+            \item<1-> 传递数组名
+            \texttt{void func(int a[]) \{...\}} \\
+            \item<2-> 传递指针
+            \texttt{void func(int* a) \{...\}} \\
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{字符串}
+\begin{frame}{字符串的定义}
+    \begin{block}{定义}
+        字符串是一种特殊的数组，它包含一系列字符，以 \texttt{'\textbackslash0'} 结尾。字符串的元素可以通过下标访问。
+    \end{block}
+    一般的字符串定义如下： \\
+    \texttt{char str[] = "Hello, World!";} \\
+    其中 \texttt{char} 为字符类型，\texttt{str} 为字符串名。
+\end{frame}
+
+\begin{frame}{字符串的操作}
+    以字符串为例，字符串的操作包括：
+    \begin{itemize}
+        \item<1-> 初始化字符串
+        \texttt{char str[] = "Hello, World!";} \\
+        \item<2-> 访问字符串元素
+        \texttt{str[index];} \\
+        \item<3-> 修改字符串元素
+        \texttt{str[index] = 'a';} \\
+        \item<4-> 遍历字符串
+        \texttt{for (int i = 0; str[i] != '\textbackslash0'; i++) \{...\}} \\
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{字符串的传参}
+    \begin{block}{传参}
+        字符串的传参可以通过以下几种方式：
+        \begin{itemize}
+            \item<1-> 传递数组名
+            \texttt{void func(char str[]) \{...\}} \\
+            \item<2-> 传递指针
+            \texttt{void func(char* str) \{...\}} \\
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{结构体}
+\begin{frame}{结构体的定义}
+    \begin{block}{定义}
+        结构体是一种复杂类型，它包含一系列不同类型的元素，这些元素在内存中连续地分布。结构体的元素可以通过成员访问运算符 \texttt{.} 访问。
+    \end{block}
+    一般的结构体定义如下： \\
+    \texttt{struct StructName \{} \\
+    \texttt{\ \ \ \ DataType1 member1;} \\
+    \texttt{\ \ \ \ DataType2 member2;} \\
+    \texttt{\ \ \ \ ...} \\
+    \texttt{\};} \\
+    \texttt{typedef struct StructName StructName;} \\
+    其中 \texttt{DataType} 为结构体的数据类型，\texttt{StructName} 为结构体名。
+\end{frame}
+
+\begin{frame}{结构体的操作}
+    以结构体为例，结构体的操作包括：
+    \begin{itemize}
+        \item<1-> 初始化结构体
+        \texttt{StructName structName = \{value1, value2, ...\};} \\
+        \item<2-> 访问结构体成员
+        \texttt{structName.member;} \\
+        \item<3-> 修改结构体成员
+        \texttt{structName.member = newValue;} \\
+    \end{itemize}
+\end{frame}
+
+\section{指针}
+\begin{frame}{复杂类型的声明}
+    \begin{itemize}
+        \item 以下声明中，哪些是合法的？如果合法，分别是什么意思？
+        \begin{enumerate}[A]
+            \item \texttt{int *p;}
+            \item \texttt{int a[10];}
+            \item \texttt{int *a[10];}
+            \item \texttt{int (*a)[10];}
+            \item \texttt{int *(*a)[10];}
+            \item \texttt{int **a[10];}
+            \item \texttt{int **a;}
+            \item \texttt{int *a[];}
+        \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{解答}
+    \begin{enumerate}[A]
+        \item \texttt{int *p;} \quad \textcolor{red}{合法}，\texttt{p}是一个指向\texttt{int}类型的指针。
+        \item \texttt{int a[10];} \quad \textcolor{red}{合法}，\texttt{a}是一个长度为10的\texttt{int}数组。
+        \item \texttt{int *a[10];} \quad \textcolor{red}{合法}，\texttt{a}是一个长度为10的\texttt{int}指针数组。
+        \item \texttt{int (*a)[10];} \quad \textcolor{red}{合法}，\texttt{a}是一个指向长度为10的\texttt{int}数组的指针。
+        \item \texttt{int *(*a)[10];} \quad \textcolor{red}{合法}，\texttt{a}是一个指向长度为10的\texttt{int}指针数组的指针。
+        \item \texttt{int **a[10];} \quad \textcolor{red}{合法}，\texttt{a}是一个长度为10的\texttt{int}指针指针数组。
+        \item \texttt{int **a;} \quad \textcolor{red}{合法}，\texttt{a}是一个\texttt{int}指针指针。
+        \item \texttt{int *a[];} \quad \textcolor{red}{不合法}，\texttt{a}是一个未知长度的\texttt{int}指针数组。
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{传参的两种方式}
+    \texttt{int func1(int HP) \{} \\
+    \texttt{\ \ \ \ return HP+1;} \\
+    \texttt{\}} \\
+    \texttt{int func2(int* HP) \{} \\
+    \texttt{\ \ \ \ (*HP)++;} \\
+    \texttt{\}} \\
+\end{frame}
+
+\begin{frame}{指针的本质}
+    指针本质是一 32 位整数或 64 位整数，它存储的是一个内存单元的地址。若以 \textsf{\%d} 形式输出，则与 \texttt{int} 没有区别 \\
+
+    在 C 语言中，指针占据的内存空间是固定的，不受指向的数据类型的影响。一般为 4 字节（32 位系统）或 8 字节（64 位系统）。\\
+
+    
+\end{frame}
+
+
+\section{链表}
+\begin{frame}{链表的定义}
+    \begin{block}{定义}
+        与数组相对，链表是一种链式结构，每个元素都包含一个指向下一个元素的指针。链表的元素可以在内存中不连续地分布，因此可以动态地分配内存。链表的元素称为节点。
+    \end{block}
+    一般的链表节点定义如下： \\
+    \texttt{struct Node \{} \\
+    \texttt{\ \ \ \ DataType data;} \\
+    \texttt{\ \ \ \ struct Node* next;} \\
+    \texttt{\};} \\
+    \texttt{typedef struct Node Node, *List;} \\
+    其中 \texttt{DataType} 为节点的数据类型，\texttt{next} 为指向下一个节点的指针。
+
+    \texttt{Node} 为节点类型 \texttt{struct Node}\\
+    \texttt{List} 为链表类型 \texttt{struct Node*}。
+\end{frame}
+
+\begin{frame}{链表的操作}
+    以带头节点的单链表为例，链表的操作包括：
+    \begin{itemize}
+        \item<1-> 创建链表
+        \texttt{List createList();} \\
+        \item<2-> 插入节点
+        \texttt{void insertNode(List L, DataType data);} \\
+        \item<3-> 删除节点
+        \texttt{void deleteNode(List L, DataType data);} \\
+        \item<4-> 遍历链表
+        \texttt{void traverseList(List L);} \\
+        \item<5-> 释放链表
+        \texttt{void freeList(List L);} \\
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{createList()}}
+    \texttt{List createList() \{} \\
+    \texttt{\ \ \ \ List L = (List)malloc(sizeof(Node));} \\
+    \texttt{\ \ \ \ L->next = NULL;} \\
+    \texttt{\ \ \ \ return L;} \\
+    \texttt{\}} \\
+\end{frame}
+
+\begin{frame}{\texttt{insertNode()}}
+    \texttt{void insertNode(List L, DataType data) \{} \\
+    \texttt{\ \ \ \ List p = L;} \\
+    \texttt{\ \ \ \ while (p->next != NULL) p = p->next;} \\
+    \texttt{\ \ \ \ List q = (List)malloc(sizeof(Node));} \\
+    \texttt{\ \ \ \ q->data = data;} \\
+    \texttt{\ \ \ \ q->next = NULL;} \\
+    \texttt{\ \ \ \ p->next = q;} \\
+    \texttt{\}} \\
+\end{frame}
+
+\begin{frame}{\texttt{deleteNode()}}
+    \texttt{void deleteNode(List L, DataType data) \{} \\
+    \texttt{\ \ \ \ List p = L;} \\
+    \texttt{\ \ \ \ while (p->next != NULL \&\& p->next->data != data) p = p->next;} \\
+    \texttt{\ \ \ \ if (p->next == NULL) return;} \\
+    \texttt{\ \ \ \ List q = p->next;} \\
+    \texttt{\ \ \ \ p->next = q->next;} \\
+    \texttt{\ \ \ \ free(q);} \\
+    \texttt{\}} \\
+
+\end{frame}
+
+\begin{frame}{\texttt{traverseList()}}
+    \texttt{void traverseList(List L) \{} \\
+    \texttt{\ \ \ \ List p = L->next;} \\
+    \texttt{\ \ \ \ while (p != NULL) \{} \\
+    \texttt{\ \ \ \ \ \ \ \ printf("\%d ", p->data);} \\
+    \texttt{\ \ \ \ \ \ \ \ p = p->next;} \\
+    \texttt{\ \ \ \ \}} \\
+    \texttt{\}} \\
+\end{frame}
+
+\begin{frame}{\texttt{freeList()}}
+    \texttt{void freeList(List L) \{} \\
+    \texttt{\ \ \ \ List p = L->next;} \\
+    \texttt{\ \ \ \ while (p != NULL) \{} \\
+    \texttt{\ \ \ \ \ \ \ \ List q = p;} \\
+    \texttt{\ \ \ \ \ \ \ \ p = p->next;} \\
+    \texttt{\ \ \ \ \ \ \ \ free(q);} \\
+    \texttt{\ \ \ \ \}} \\
+    \texttt{\ \ \ \ free(L);} \\
+    \texttt{\}} \\
+\end{frame}
+
+
+
+\end{document}
